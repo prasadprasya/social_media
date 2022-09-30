@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=socialmediadb
+      - POSTGRES_USER=prasad
+      - POSTGRES_PASSWORD=NpMsqIhPjHVSXLUdJwiKxcqFjtPqJVVQ
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_NAME=socialmediadb
+      - POSTGRES_USER=prasad
+      - POSTGRES_PASSWORD=NpMsqIhPjHVSXLUdJwiKxcqFjtPqJVVQ
+    depends_on:
+      - db

@@ -1,0 +1,3 @@
+SECRET_KEY=v2yjaea5+y)%&mt+)k@3t@2&nwn98lv!10n^1b5e3h9mvle%w$
+DEBUG=True
+DATABASE_URL=postgres://postgres:prasad@123@localhost/socialmediadb
